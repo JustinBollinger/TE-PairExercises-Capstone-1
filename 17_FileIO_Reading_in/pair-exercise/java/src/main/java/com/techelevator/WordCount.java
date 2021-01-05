@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class WordCount
@@ -12,14 +13,10 @@ public class WordCount
 
 	public static void main(String[] args)
 	{
-		readAliceInWonderlandTextFile();
+		readAlicesAdventuresInWonderlandFile();
 	}
 	
-	private static void readAliceInWonderlandTextFile() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	public static void readAlicesAdventuresInWonderlandFile()
 	{
 		String filePath = "alices_adventures_in_wonderland.txt";
@@ -35,27 +32,35 @@ public class WordCount
 //		scanner = new Scanner(reader);
 		
 		scanner = new Scanner(alicesAdventuresFile.getAbsoluteFile());
-		
+		int counter = 0;
+		int counterSentence = 0;
 		// process all lines
 		//for (int i = 0; i < 10; i++) // for loop not  a good idea because we don't know how many lines there are
 		while(scanner.hasNextLine()) // when should we stop looping? when there are no more lines
 		{
+			
 			String aliceAdventures = scanner.nextLine();
-			System.out.println(aliceAdventures);
+			//System.out.println(aliceAdventures);
 			
 			// split the text line into different parts
 			String[] words = aliceAdventures.split(" "); 
+			counter += words.length-1;
 			
+			String[] sentences = aliceAdventures.split("\\.");
+			counterSentence += sentences.length-1;
+			
+			String[] sentences1 = aliceAdventures.split("\\?");
+			counterSentence += sentences1.length-1;
+			
+			String[] sentences2 = aliceAdventures.split("!");
+			counterSentence += sentences2.length-1;
 			// convert the string parts into the correct data type
-			String aliceWords = words[0];
-			int numberOfWords = Integer.parseInt(words[1]);
-			int numberOfSentences = Integer.parseInt(words[2]);
 			
 			
-			
-			displayString(aliceAdventures, numberOfWords, numberOfSentences);
 			
 		}
+		
+		displayString(counter, counterSentence);
 	} 
 	catch (FileNotFoundException e)
 	{
@@ -64,8 +69,9 @@ public class WordCount
 	}
 	}
 
-	private static void displayString(String aliceAdventures, int numberOfWords, int numberOfSentences) {
-		// TODO Auto-generated method stub
-		
+	private static void displayString(int numberOfWords, int numberOfSentences) 
+	{
+		System.out.println("Word Count: " + numberOfWords);
+		System.out.println("Sentence Count: " + numberOfSentences);
 	}
 }
