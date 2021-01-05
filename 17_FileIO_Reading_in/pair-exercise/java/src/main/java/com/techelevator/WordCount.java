@@ -44,7 +44,8 @@ public class WordCount
 			
 			// split the text line into different parts
 			String[] words = aliceAdventures.split(" "); 
-			counter += words.length-1;
+			counter += words.length -1;
+			
 			
 			String[] sentences = aliceAdventures.split("\\.");
 			counterSentence += sentences.length-1;
