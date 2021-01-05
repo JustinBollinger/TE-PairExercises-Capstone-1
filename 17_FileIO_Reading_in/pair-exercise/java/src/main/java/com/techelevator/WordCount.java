@@ -15,61 +15,42 @@ public class WordCount
 	{
 		readAlicesAdventuresInWonderlandFile();
 	}
-	
-	
+
 	public static void readAlicesAdventuresInWonderlandFile()
 	{
 		String filePath = "alices_adventures_in_wonderland.txt";
 		File alicesAdventuresFile = new File(filePath);
-	
 
-	Scanner scanner;
-	try
-	{
-		// this is the manual way to create the file stream
-//		FileInputStream in = new FileInputStream(zipCodeFile);
-//		InputStreamReader reader = new InputStreamReader(in);
-//		scanner = new Scanner(reader);
-		
-		scanner = new Scanner(alicesAdventuresFile.getAbsoluteFile());
-		int counter = 0;
-		int counterSentence = 0;
-		// process all lines
-		//for (int i = 0; i < 10; i++) // for loop not  a good idea because we don't know how many lines there are
-		while(scanner.hasNextLine()) // when should we stop looping? when there are no more lines
+		Scanner scanner;
+
+		try
 		{
-			
-			String aliceAdventures = scanner.nextLine();
-			
-			
-			// comes up with the wrong number.
-			// change when Gregor's video is posted.
-			String[] words = aliceAdventures.split(" "); 
-			counter += words.length -1;
-			
-			
-			String[] sentences = aliceAdventures.split("\\.");
-			counterSentence += sentences.length-1;
-			
-			String[] sentences1 = aliceAdventures.split("\\?");
-			counterSentence += sentences1.length-1;
-			
-			String[] sentences2 = aliceAdventures.split("!");
-			counterSentence += sentences2.length-1;
-			// convert the string parts into the correct data type
-		
+
+			scanner = new Scanner(alicesAdventuresFile.getAbsoluteFile());
+			int wordCounter = 0;
+			int counterSentence = 0;
+
+			while (scanner.hasNext())
+			{
+
+				String aliceAdventures = scanner.next();
+				wordCounter++;
+
+				if (aliceAdventures.endsWith(".") || aliceAdventures.endsWith("!") || aliceAdventures.endsWith("?"))
+				{
+					counterSentence++;
+				}
+			}
+
+			displayString(wordCounter, counterSentence);
 		}
-		
-		displayString(counter, counterSentence);
-	} 
-	catch (FileNotFoundException e)
-	{
-		// TODO Auto-generated catch block
-		System.out.println("File: " + filePath + " was not found.");
-	}
+		catch (FileNotFoundException e)
+		{
+			System.out.println("File: " + filePath + " was not found.");
+		}
 	}
 
-	private static void displayString(int numberOfWords, int numberOfSentences) 
+	private static void displayString(int numberOfWords, int numberOfSentences)
 	{
 		System.out.println("Word Count: " + numberOfWords);
 		System.out.println("Sentence Count: " + numberOfSentences);
