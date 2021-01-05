@@ -19,20 +19,23 @@ public class FindAndReplace
 		File aliceText = new File(path);
 		
 		System.out.println(aliceText);
-		System.out.println(aliceText.getAbsolutePath());
+		
 		
 		// logic 
 		
 		
 		
-		if(aliceText.exists())
-		{
-			aliceText.delete();
-			System.out.println("deleting file");
-		}
+		//if(aliceText.exists())
+		//{
+			//aliceText.();
+			
+			//System.out.println("Replacing " );
+		//}
 		
 		try
 		{
+			
+			
 			System.out.print("Enter word to search for: ");
 			String enteredWord = userInput.nextLine();
 			
@@ -43,10 +46,17 @@ public class FindAndReplace
 			FileOutputStream fileStream = new FileOutputStream(aliceText, true);
 			PrintStream fileWriter = new PrintStream(fileStream);
 			
-			fileWriter.println(enteredWord);
+			fileWriter.println(replacementWord);
 			fileWriter.close();
 
+			Scanner scanner = new Scanner(aliceText.getAbsoluteFile());
 			
+			while (scanner.hasNextLine())
+			{
+				String newTextLine = scanner.nextLine();
+				fileWriter.println(newTextLine.replaceAll(enteredWord, replacementWord));
+				
+			}
 			
 			
 		} catch (Exception e)
