@@ -2,7 +2,9 @@ package com.techelevator;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 import javax.print.event.PrintServiceAttributeEvent;
@@ -20,7 +22,10 @@ public class FindAndReplace
 		
 		System.out.println(aliceText);
 		
-		
+		//String filePath = "alices_adventures_in_wonderland.txt";
+		File alicesAdventuresFile = new File("test.txt");
+
+		Scanner scanner;
 		// logic 
 		
 		
@@ -32,7 +37,9 @@ public class FindAndReplace
 			//System.out.println("Replacing " );
 		//}
 		
-		try
+		try (FileWriter fileStream = new FileWriter(alicesAdventuresFile);
+			PrintWriter fileWriter = new PrintWriter(fileStream);
+			)
 		{
 			
 			
@@ -43,21 +50,19 @@ public class FindAndReplace
 			String replacementWord = userInput.nextLine();
 			
 			
-			FileOutputStream fileStream = new FileOutputStream(aliceText, true);
-			PrintStream fileWriter = new PrintStream(fileStream);
 			
 			fileWriter.println(replacementWord);
 			fileWriter.close();
 
-			Scanner scanner = new Scanner(aliceText.getAbsoluteFile());
+			Scanner lineScanner = new Scanner(aliceText.getAbsoluteFile());
 			
-			while (scanner.hasNextLine())
+			while (lineScanner.hasNextLine())
 			{
-				String newTextLine = scanner.nextLine();
+				String newTextLine = lineScanner.nextLine();
 				fileWriter.println(newTextLine.replaceAll(enteredWord, replacementWord));
 				
 			}
-			
+			lineScanner.close();
 			
 		} catch (Exception e)
 		{
