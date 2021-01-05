@@ -40,9 +40,10 @@ public class WordCount
 		{
 			
 			String aliceAdventures = scanner.nextLine();
-			//System.out.println(aliceAdventures);
 			
-			// split the text line into different parts
+			
+			// comes up with the wrong number.
+			// change when Gregor's video is posted.
 			String[] words = aliceAdventures.split(" "); 
 			counter += words.length -1;
 			
@@ -56,9 +57,7 @@ public class WordCount
 			String[] sentences2 = aliceAdventures.split("!");
 			counterSentence += sentences2.length-1;
 			// convert the string parts into the correct data type
-			
-			
-			
+		
 		}
 		
 		displayString(counter, counterSentence);
