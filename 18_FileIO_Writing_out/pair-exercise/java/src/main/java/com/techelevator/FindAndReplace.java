@@ -17,10 +17,12 @@ public class FindAndReplace
 		Scanner userInput = new Scanner (System.in);
 		System.out.print("Enter file name: ");
 		String path = userInput.nextLine();
+		System.out.println();
 		
 		File aliceText = new File(path);
 		
 		System.out.println(aliceText);
+		System.out.println();
 		
 		//String filePath = "alices_adventures_in_wonderland.txt";
 		File alicesAdventuresFile = new File("test.txt");
@@ -30,32 +32,33 @@ public class FindAndReplace
 		
 		
 		
-		//if(aliceText.exists())
-		//{
-			//aliceText.();
+		if(aliceText.isFile())
+		{
+			aliceText.toString();
 			
-			//System.out.println("Replacing " );
-		//}
+			
+		}
 		
-		try (FileWriter fileStream = new FileWriter(alicesAdventuresFile);
-			PrintWriter fileWriter = new PrintWriter(fileStream);
+		try (Scanner lineScanner = new Scanner(aliceText.getAbsoluteFile());
+				FileOutputStream fileStream = new FileOutputStream(alicesAdventuresFile);
+			PrintStream fileWriter = new PrintStream(fileStream);
 			)
 		{
 			
 			
 			System.out.print("Enter word to search for: ");
 			String enteredWord = userInput.nextLine();
+			System.out.println();
 			
-			System.out.println("Enter replacement word: ");
+			
+			System.out.print("Enter replacement word: ");
 			String replacementWord = userInput.nextLine();
-			
+			System.out.println();
 			
 			
 			fileWriter.println(replacementWord);
-			fileWriter.close();
-
-			Scanner lineScanner = new Scanner(aliceText.getAbsoluteFile());
 			
+
 			while (lineScanner.hasNextLine())
 			{
 				String newTextLine = lineScanner.nextLine();
@@ -64,7 +67,8 @@ public class FindAndReplace
 			}
 			lineScanner.close();
 			
-		} catch (Exception e)
+		} 
+		catch (Exception e)
 		{
 			// TODO: handle exception
 		}
