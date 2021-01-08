@@ -21,7 +21,7 @@ public class VendingMachine
     {
         while(true)
         {
-            String choice = "display";
+            String choice = MainUserMenu.getHomeScreenOption();
 
             if(choice.equals("display"))
             {
@@ -44,23 +44,6 @@ public class VendingMachine
     	// show the products
     	UserOutput.displayInventory(inventory);
     	
-    	// prompt for input
-    	String slotLocation = MainUserMenu.getSelectedProduct();
-    	
-    	// find the product based on the id
-    	Products product = null;
-    	for (Products vending : inventory.getProducts())
-		{
-			if(vending.getSlotLocation().equals(slotLocation))
-			{
-				product = vending;
-				break;
-			}
-		}
-    	
-    	// add that product to the cart
-        vendingCart.add(product);
-        
     }
     
     
@@ -68,19 +51,58 @@ public class VendingMachine
     {
         // User the UserOutput to display the products in the ShoppingCart
         // then prompt the user for payment
-
-
-        BigDecimal paymentAmount = new BigDecimal("0"); // get the value from user input
-        try
+        while(true)
         {
-            MoneyManager.pay(vendingCart, paymentAmount);
-        }
-        catch(Exception ex)
-        {
-            // Log the error message to file
-            // to implement this you need to open the Logger.java file
-            // and complete the logMessage function
-            errorLogger.logMessage(ex.getMessage());
+
+            String option = MainUserMenu.getPurchaseOptions();
+
+            if(option.equals("feed"))
+            {
+                // promp the user for money
+                // add the money to the MoneyManager
+                //MoneyManager.add(moneyProvided);
+            }
+            else if(option.equals("select"))
+            {
+                // display all products
+
+                // prompt for input
+                String slotLocation = MainUserMenu.getSelectedProduct();
+                
+                // find the product based on the id
+                Products product = null;
+                for (Products vending : inventory.getProducts())
+                {
+                    if(vending.getSlotLocation().equals(slotLocation))
+                    {
+                        product = vending;
+                        break;
+                    }
+                }
+                
+                // there is no need for a cart in this application
+                // add that product to the cart
+                vendingCart.add(product);
+        
+
+                // calculate if they have enough money
+                BigDecimal paymentAmount = new BigDecimal("0"); // get the value from user input
+                try
+                {
+                    MoneyManager.pay(vendingCart, paymentAmount);
+                }
+                catch(Exception ex)
+                {
+                    // Log the error message to file
+                    // to implement this you need to open the Logger.java file
+                    // and complete the logMessage function
+                    errorLogger.logMessage(ex.getMessage());
+                }
+            }
+            else if(option.equals("finish"))
+            {
+                break;
+            }
         }
     }
     

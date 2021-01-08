@@ -44,6 +44,42 @@ private static Scanner scanner = new Scanner(System.in);
 		
 	}
   
+	public static String getPurchaseOptions()
+	{
+		System.out.println();
+		System.out.println("What would you like?");
+		System.out.println();
+
+		System.out.println("1) Feed Money");
+		System.out.println("2) Select Product");
+		System.out.println("3) Finish Transaction");
+		
+		
+		System.out.println();
+		System.out.print("Please select an option: ");
+		
+		String selectedOption = scanner.nextLine();
+		String option = selectedOption.trim().toLowerCase();
+		
+		if(option.equals("1"))
+		{
+			 return "feed";
+		}
+		else if(option.equals("2"))
+		{
+			return "select";
+		}
+		else if(option.equals("3"))
+		{
+			return "finish";
+		}
+		
+		else
+		{
+			return "";
+		}
+	}
+
 	public static String getSelectedProduct()
 	{
 		System.out.print("Which option would you like today? ");
