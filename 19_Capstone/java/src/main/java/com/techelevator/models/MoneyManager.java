@@ -12,7 +12,7 @@ public class MoneyManager
 	private static BigDecimal credit = BigDecimal.ZERO;
 	private static BigDecimal change = BigDecimal.ZERO;
 	// update to just take the productAmount
-	public static BigDecimal pay( int productAmount) 
+	public static BigDecimal pay(BigDecimal productAmount) 
 	{
 		// get the amount owed
 		BigDecimal amountOwed = Products.getPrice();
@@ -41,7 +41,7 @@ public class MoneyManager
 	public static BigDecimal feedMoney(BigDecimal Price)
 	{
 	    Scanner keyboard = new Scanner(System.in);
-	    BigDecimal money = 0.00;
+	    BigDecimal money = 0;
 	    System.out.println("Your item costs: " + Price + " Please enter the amount of money:");
 	    money = keyboard.nextBigDecimal();
 	    while (money < Price){

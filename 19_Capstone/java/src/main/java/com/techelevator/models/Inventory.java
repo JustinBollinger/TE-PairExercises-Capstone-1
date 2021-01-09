@@ -14,7 +14,7 @@ public class Inventory
 
 private Map<Products, Integer> products = new HashMap<Products, Integer>();
 	
-	public Map<Products, Integer> getProdcuts()
+	public Map<Products, Integer> getProducts()
 	{
 		return products;
 	}

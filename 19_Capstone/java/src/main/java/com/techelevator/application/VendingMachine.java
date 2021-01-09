@@ -12,7 +12,6 @@ import com.techelevator.ui.UserOutput;
 public class VendingMachine 
 {
 	private Inventory inventory = new Inventory();
-    private VendingCart vendingCart = new VendingCart();
 
     private PurchaseLogger errorLogger = new PurchaseLogger("errors");
     
@@ -44,6 +43,8 @@ public class VendingMachine
     	// show the products
     	UserOutput.displayInventory(inventory);
     	
+    	
+    	
     }
     
     
@@ -58,9 +59,9 @@ public class VendingMachine
 
             if(option.equals("feed"))
             {
-                // promp the user for money
+                // prompt the user for money
                 // add the money to the MoneyManager
-                //MoneyManager.add(moneyProvided);
+                // MoneyManager.add(moneyProvided);
             }
             else if(option.equals("select"))
             {
@@ -82,7 +83,7 @@ public class VendingMachine
                 
                 // there is no need for a cart in this application
                 // add that product to the cart
-                vendingCart.add(product);
+//                vendingCart.add(product);
         
 
                 // calculate if they have enough money

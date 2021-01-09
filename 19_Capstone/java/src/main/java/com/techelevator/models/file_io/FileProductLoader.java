@@ -10,14 +10,15 @@ import java.util.Scanner;
 
 import com.techelevator.models.products.Products;
 
+// Dependencies:
+// 			Inventory
+
 public class FileProductLoader
 {
    private Map<Products, Integer> products = new HashMap<Products, Integer>();
 	
    public Map<Products, Integer> getProducts()
 	{
-		
-		
 		File productsPath = new File("vendingmachine.csv");		
 		try(Scanner fileScanner = new Scanner(productsPath))
 		{

@@ -19,7 +19,6 @@ public class Products
 		}
 
 
-
 		public String getSlotLocation()
 		{
 			return slotLocation;

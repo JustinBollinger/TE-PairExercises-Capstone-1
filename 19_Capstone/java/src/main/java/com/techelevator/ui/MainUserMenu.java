@@ -4,24 +4,25 @@ import java.util.Scanner;
 
 public class MainUserMenu
 {
-
-private static Scanner scanner = new Scanner(System.in);
+	private static Scanner uInput= new Scanner(System.in);
 	
 	public static String getHomeScreenOption()
 	{
+		System.out.println("************************************************************");
+		System.out.println("Welcome to the Vendomatic 800 by the Umbrella Corporation!");
+		System.out.println("   ----   Please select from the options below.   ----   ");
+		System.out.println("************************************************************");
 		System.out.println();
-		System.out.println("Welcome to the Vendomatic 800 by the Umbrella Corporation, What would you like?");
-		System.out.println();
-
+		
 		System.out.println("1) Display Vending Machine Items");
 		System.out.println("2) Purchase Item");
 		System.out.println("3) Exit");
 		
-		
 		System.out.println();
 		System.out.print("Please select an option: ");
 		
-		String selectedOption = scanner.nextLine();
+		
+		String selectedOption = uInput.nextLine();
 		String option = selectedOption.trim();
 		
 		if(option.equals("1"))
@@ -36,7 +37,6 @@ private static Scanner scanner = new Scanner(System.in);
 		{
 			return "exit";
 		}
-		
 		else
 		{
 			return "";
@@ -82,7 +82,7 @@ private static Scanner scanner = new Scanner(System.in);
 
 	public static String getSelectedProduct()
 	{
-		System.out.print("Which option would you like today? ");
+		System.out.print("What are you hungry for? ");
 		String slotLocation = scanner.nextLine();
 		
 		return slotLocation.toLowerCase().trim();
