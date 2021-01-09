@@ -105,7 +105,11 @@ public class VendingMachine
     
     public void exit()
     {
-    	// use the UserOutput to display the products in the ShoppingCart
+    	System.out.println();
+		System.out.println("***************************");
+		System.out.println(" THANK YOU FOR YOUR TIME");
+		System.out.println("***************************");
+		System.out.println();
     }
     
 }

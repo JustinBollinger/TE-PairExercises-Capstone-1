@@ -27,10 +27,6 @@ public class Inventory
 	    	products = loader.getProducts();
 	    }
     
-//	    public Map<String, Products> getProducts()
-//	    {
-//	    	return products;
-//	    }
-//    
+  
 	
 }

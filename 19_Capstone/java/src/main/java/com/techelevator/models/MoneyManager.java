@@ -41,10 +41,11 @@ public class MoneyManager
 //	public static BigDecimal feedMoney(BigDecimal Price)
 //	{
 //	    Scanner keyboard = new Scanner(System.in);
-//	    BigDecimal money = 0;
+//	    BigDecimal money = new BigDecimal(0);
 //	    System.out.println("Your item costs: " + Price + " Please enter the amount of money:");
 //	    money = keyboard.nextBigDecimal();
-//	    while (money < Price){
+//	    while (money) < Price)
+//	    {
 //	        System.out.println("Please insert sufficient funds");
 //	        money = money + keyboard.nextBigDecimal();
 //	    }
