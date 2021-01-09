@@ -58,7 +58,7 @@ public class MainUserMenu
 		System.out.println();
 		System.out.print("Please select an option: ");
 		
-		String selectedOption = scanner.nextLine();
+		String selectedOption = uInput.nextLine();
 		String option = selectedOption.trim();
 		
 		if(option.equals("1"))
@@ -83,7 +83,7 @@ public class MainUserMenu
 	public static String getSelectedProduct()
 	{
 		System.out.print("What are you hungry for? ");
-		String slotLocation = scanner.nextLine();
+		String slotLocation = uInput.nextLine();
 		
 		return slotLocation.toLowerCase().trim();
 	}

@@ -11,27 +11,26 @@ import com.techelevator.models.products.Products;
 
 public class Inventory
 {
-
-private Map<Products, Integer> products = new HashMap<Products, Integer>();
+	private Map<String, Products> products = new HashMap<String, Products>();
+		
+		public Map<String,Products> getProducts()
+		{
+			return products;
+		}
 	
-	public Map<Products, Integer> getProducts()
-	{
-		return products;
-	}
-
-	public Inventory()
-	{
-		loadInventory();
-	}
+		public Inventory()
+		{
+			loadInventory();
+		}
+		
 	
-
-    private void loadInventory()
-    {
-        // Inventory should NOT know how to read from a file
-        // we will use the FileProductLoader to get the products
-    	FileProductLoader loader = new FileProductLoader();
-    	products = loader.getProducts();
-    }
+	    private void loadInventory()
+	    {
+	        // Inventory should NOT know how to read from a file
+	        // we will use the FileProductLoader to get the products
+	    	FileProductLoader loader = new FileProductLoader();
+	    	products = loader.getProducts();
+	    }
     
     
 	

@@ -15,16 +15,15 @@ import com.techelevator.models.products.Products;
 
 public class FileProductLoader
 {
-   private Map<Products, Integer> products = new HashMap<Products, Integer>();
+   private Map<String, Products> products = new HashMap<String, Products>();
 	
-   public Map<Products, Integer> getProducts()
+   
+   
+   public Map<String, Products> getProducts()
 	{
 		File productsPath = new File("vendingmachine.csv");		
 		try(Scanner fileScanner = new Scanner(productsPath))
-		{
-			// read one line to skip the header
-			fileScanner.nextLine();
-			
+		{	
 			//loop and add each product to the list
 			while(fileScanner.hasNextLine())
 			{
@@ -40,7 +39,7 @@ public class FileProductLoader
 				Products product = new Products(slotLocation, productName, price, type);
 								
 				// add it to the list
-				products.add(product);
+				products.put(slotLocation, product);
 			}
 		}
 		catch(Exception ex)
