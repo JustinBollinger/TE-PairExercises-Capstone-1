@@ -1,7 +1,9 @@
 package com.techelevator.models;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.techelevator.models.file_io.FileProductLoader;
 
@@ -10,8 +12,13 @@ import com.techelevator.models.products.Products;
 public class Inventory
 {
 
-private List<Products> products = new ArrayList<Products>();
+private Map<Products, Integer> products = new HashMap<Products, Integer>();
 	
+	public Map<Products, Integer> getProdcuts()
+	{
+		return products;
+	}
+
 	public Inventory()
 	{
 		loadInventory();
@@ -26,9 +33,6 @@ private List<Products> products = new ArrayList<Products>();
     	products = loader.getProducts();
     }
     
-    public List<Products> getProducts()
-    {
-    	return products;
-    }
+    
 	
 }

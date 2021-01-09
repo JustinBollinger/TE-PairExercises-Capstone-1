@@ -89,7 +89,7 @@ public class VendingMachine
                 BigDecimal paymentAmount = new BigDecimal("0"); // get the value from user input
                 try
                 {
-                    MoneyManager.pay(vendingCart, paymentAmount);
+                    MoneyManager.pay(paymentAmount);
                 }
                 catch(Exception ex)
                 {

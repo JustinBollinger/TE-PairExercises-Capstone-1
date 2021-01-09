@@ -22,7 +22,7 @@ private static Scanner scanner = new Scanner(System.in);
 		System.out.print("Please select an option: ");
 		
 		String selectedOption = scanner.nextLine();
-		String option = selectedOption.trim().toLowerCase();
+		String option = selectedOption.trim();
 		
 		if(option.equals("1"))
 		{
@@ -59,7 +59,7 @@ private static Scanner scanner = new Scanner(System.in);
 		System.out.print("Please select an option: ");
 		
 		String selectedOption = scanner.nextLine();
-		String option = selectedOption.trim().toLowerCase();
+		String option = selectedOption.trim();
 		
 		if(option.equals("1"))
 		{
