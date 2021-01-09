@@ -1,9 +1,11 @@
 package com.techelevator.ui;
 
+import java.util.Map;
+
 import com.techelevator.models.Inventory;
 import com.techelevator.models.products.Products;
 
-public class UserOutput
+public class UserOutput 
 {
 	public static void displayInventory(Inventory inventory)
 		{
@@ -14,13 +16,15 @@ public class UserOutput
 			System.out.println();
 			
 			
-//			
-//			for(Products product: inventory.getProducts())
-//			{
-//				System.out.println(product.toString());
-//			}
-//			System.out.println();
 			
+		for(Map.Entry<String, Products> product: inventory.getProducts().entrySet())
+			{
+				System.out.println(product.toString());
+			}
+			System.out.println();
+		
 		}
 	
+	
+    
 }

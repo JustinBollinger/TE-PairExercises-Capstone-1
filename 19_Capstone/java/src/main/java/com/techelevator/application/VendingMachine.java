@@ -8,7 +8,7 @@ import com.techelevator.ui.MainUserMenu;
 import com.techelevator.ui.UserOutput;
 
 
-public class VendingMachine 
+public class VendingMachine
 {
 	private Inventory inventory = new Inventory();
 

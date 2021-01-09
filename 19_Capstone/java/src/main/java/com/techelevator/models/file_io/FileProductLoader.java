@@ -2,11 +2,10 @@ package com.techelevator.models.file_io;
 
 import java.io.File;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+
 
 import com.techelevator.models.products.Products;
 
@@ -21,6 +20,8 @@ public class FileProductLoader
    
    public Map<String, Products> getProducts()
 	{
+	   Map<String, Products> products = new HashMap<String, Products>();
+	   
 		File productsPath = new File("vendingmachine.csv");		
 		try(Scanner fileScanner = new Scanner(productsPath))
 		{	

@@ -1,12 +1,7 @@
 package com.techelevator.models;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
 import com.techelevator.models.file_io.FileProductLoader;
-
 import com.techelevator.models.products.Products;
 
 public class Inventory
@@ -32,6 +27,10 @@ public class Inventory
 	    	products = loader.getProducts();
 	    }
     
-    
+//	    public Map<String, Products> getProducts()
+//	    {
+//	    	return products;
+//	    }
+//    
 	
 }
