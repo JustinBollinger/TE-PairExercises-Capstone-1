@@ -41,7 +41,7 @@ public class Products
 		
 		public String getSound()
 		{
-			return "...defauilt sound...";
+			return "...default sound...";
 		}
 		   
 		

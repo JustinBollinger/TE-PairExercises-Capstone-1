@@ -79,7 +79,7 @@ public class VendingMachine
                 {
                     MoneyManager.purchase(product.getPrice());
                     // TODO: update the inventory quantity of the product
-                    // TODO: display "crunch crunch yum"
+                   
                     System.out.println(product.getSound());
                 }
                 catch(Exception ex)
@@ -102,11 +102,7 @@ public class VendingMachine
     
     public void exit()
     {
-    	System.out.println();
-		System.out.println("***************************");
-		System.out.println(" THANK YOU FOR YOUR TIME");
-		System.out.println("***************************");
-		System.out.println();
+    	UserOutput.displayExitMessage();
     }
     
 }

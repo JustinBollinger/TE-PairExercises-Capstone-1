@@ -25,6 +25,13 @@ public class UserOutput
 		
 		}
 	
-	
+	public static void displayExitMessage()
+	{
+		System.out.println();
+		System.out.println("***************************");
+		System.out.println(" THANK YOU FOR YOUR TIME");
+		System.out.println("***************************");
+		System.out.println();
+	}
     
 }

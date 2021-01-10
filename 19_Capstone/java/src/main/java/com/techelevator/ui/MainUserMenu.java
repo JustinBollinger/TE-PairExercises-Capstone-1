@@ -3,6 +3,8 @@ package com.techelevator.ui;
 import java.math.BigDecimal;
 import java.util.Scanner;
 
+import com.techelevator.models.MoneyManager;
+
 public class MainUserMenu
 {
 	private static Scanner uInput= new Scanner(System.in);
@@ -94,7 +96,11 @@ public class MainUserMenu
 		// TODO: prompt the user for money
 		System.out.println("Please enter a $1, $2, $5, or $10 bill");
 		// place logic in for denominations
-		
+//		if(MoneyManager.feedMoney(amount) = 1)
+//		{
+//			return
+//		}
+//		
 		// dummy placeholder until we prompt the user
 		return BigDecimal.TEN;
 	}
