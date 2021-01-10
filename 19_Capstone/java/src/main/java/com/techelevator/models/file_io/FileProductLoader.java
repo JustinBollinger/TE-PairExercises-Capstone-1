@@ -5,9 +5,9 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
-
-import com.techelevator.models.products.Products;
+import com.techelevator.models.products.*;
 
 // Dependencies:
 // 			Inventory
@@ -20,7 +20,7 @@ public class FileProductLoader
    
    public Map<String, Products> getProducts()
 	{
-	   Map<String, Products> products = new HashMap<String, Products>();
+	   Map<String, Products> products = new TreeMap<String, Products>();
 	   
 		File productsPath = new File("vendingmachine.csv");		
 		try(Scanner fileScanner = new Scanner(productsPath))
@@ -37,7 +37,27 @@ public class FileProductLoader
 				BigDecimal price = new BigDecimal(parts[2]);
 				String type = parts[3];
 				
-				Products product = new Products(slotLocation, productName, price, type);
+				Products product = null;
+				
+				if(type.equals("Chip"))
+				{
+					product = new Chip(slotLocation, productName, price, type);
+				}
+				
+				else if (type.equals("Drink"))
+				{
+					product = new Drink(slotLocation, productName, price, type);
+				}
+				else if (type.equals("Candy"))
+				{
+					product = new Candy(slotLocation, productName, price, type);
+				}
+
+				else 
+				{
+					product = new Gum(slotLocation, productName, price, type);
+				}
+					
 								
 				// add it to the list
 				products.put(slotLocation, product);

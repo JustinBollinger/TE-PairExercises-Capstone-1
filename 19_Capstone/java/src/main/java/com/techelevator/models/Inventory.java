@@ -27,6 +27,9 @@ public class Inventory
 	    	products = loader.getProducts();
 	    }
     
-  
+	  public Products getProductBySlotLocation(String slot)
+	  {
+		  return products.get(slot.toUpperCase());
+	  }
 	
 }

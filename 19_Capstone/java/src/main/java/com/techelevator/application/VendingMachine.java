@@ -46,61 +46,58 @@ public class VendingMachine
     
     public void purchase()
     {
-//        // User the UserOutput to display the products in the Inventory
-//        // then prompt the user for payment
-//        while(true)
-//        {
-//            String option = MainUserMenu.getPurchaseOptions();
-//
-//            if(option.equals("feed"))
-//            {
-//                // prompt the user for money
-//                // add the money to the MoneyManager
-//                // MoneyManager.add(moneyProvided);
-//            }
-//            else if(option.equals("select"))
-//            {
-//                // display all products
-//
-//                // prompt for input
-//                String slotLocation = MainUserMenu.getSelectedProduct();
-//                
-//                // find the product based on the id
-//                Products product = null;
-//                for (Products vending : inventory.getProducts())
-//                {
-//                    if(vending.getSlotLocation().equals(slotLocation))
-//                    {
-//                        product = vending;
-//                        break;
-//                    }
-//                }
-                
-                // there is no need for a cart in this application
-                // add that product to the cart
-//                vendingCart.add(product);
-        
+        // User the UserOutput to display the products in the Inventory
+        // then prompt the user for payment
+        while(true)
+      {
+            String option = MainUserMenu.getPurchaseOptions();
 
+            if(option.equals("feed"))
+            {
+                // prompt the user for money
+                // add the money to the MoneyManager
+            	BigDecimal moneyProvided = MainUserMenu.getMoney();
+                MoneyManager.feedMoney(moneyProvided);
+            }
+            else if(option.equals("select"))
+            {
+            	// display hoe much money is available
+            	BigDecimal credit = MoneyManager.getCredit();
+            	// TODO: UserOutput to display the credit
+            	
+                // display all products
+            	UserOutput.displayInventory(inventory);
+
+                // prompt for input
+                String slotLocation = MainUserMenu.getSelectedProduct();
+                
+                // find the product based on the id
+                Products product = inventory.getProductBySlotLocation(slotLocation);
+                
                 // calculate if they have enough money
-//                
-//                BigDecimal paymentAmount = new BigDecimal("0"); // get the value from user input
-//                try
-//                {
-//                    MoneyManager.pay(paymentAmount);
-//                }
-//                catch(Exception ex)
-//                {
-//                    // Log the error message to file
-//                    // to implement this you need to open the Logger.java file
-//                    // and complete the logMessage function
-//                    errorLogger.logMessage(ex.getMessage());
-//                }
-//            }
-//            else if(option.equals("finish"))
-//            {
-//                break;
-//            }
-//        }
+                try
+                {
+                    MoneyManager.purchase(product.getPrice());
+                    // TODO: update the inventory quantity of the product
+                    // TODO: display "crunch crunch yum"
+                    System.out.println(product.getSound());
+                }
+                catch(Exception ex)
+                {
+                    // Log the error message to file
+                    // to implement this you need to open the Logger.java file
+                    // and complete the logMessage function
+                    errorLogger.logMessage(ex.getMessage());
+                    System.out.println(ex.getMessage());
+                }
+            }
+            else if(option.equals("finish"))
+            {
+            	// TODO: calculate and display the change for the user
+            	// TODO: empty the MoneyManager credit
+                break;
+            }
+        }
     }
     
     public void exit()

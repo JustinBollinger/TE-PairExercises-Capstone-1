@@ -1,5 +1,6 @@
 package com.techelevator.ui;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class MainUserMenu
@@ -86,6 +87,16 @@ public class MainUserMenu
 		String slotLocation = uInput.nextLine();
 		
 		return slotLocation.toLowerCase().trim();
+	}
+	
+	public static BigDecimal getMoney()
+	{
+		// TODO: prompt the user for money
+		System.out.println("Please enter a $1, $2, $5, or $10 bill");
+		// place logic in for denominations
+		
+		// dummy placeholder until we prompt the user
+		return BigDecimal.TEN;
 	}
 	
 }

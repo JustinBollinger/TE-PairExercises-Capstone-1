@@ -38,6 +38,11 @@ public class Products
 		{
 			return type;
 		}
+		
+		public String getSound()
+		{
+			return "...defauilt sound...";
+		}
 		   
 		
 		@Override
